@@ -1,0 +1,4 @@
+<h2>all the sushis</h2>
+<% @sushis.each do |sushi| %>
+    <p><a href="<%= "/sushis/#{sushi.id}" %>"><%= sushi.name %></a> costs <%= sushi.formatted_price %></p>
+<% end %>
