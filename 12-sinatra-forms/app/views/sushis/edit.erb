@@ -4,15 +4,18 @@
     <input type="hidden" name="_method" value="patch">
     <div>
         <label for="name">Enter your sushi name: </label>
-        <input type="text" name="name" id="name" value="<%= @sushi.name %>" >
+        <input type="text" name="sushi[name]" id="name" value="<%= @sushi.name %>" >
     </div>
     <div>
         <label for="price">Enter your sushi price: </label>
-        <input type="number" name="price" id="price" step="0.01" value="<%= @sushi.price %>">
+        <input type="number" name="sushi[price]" id="price" step="0.01" value="<%= @sushi.price %>">
     </div>
     <div>
-        <label for="fish">Enter your sushi fish: </label>
-        <input type="text" name="fish" id="fish" value="<%= @sushi.fish %>">
+        <select name="sushi[fish_id]">
+            <% @fish_for_select.each do |fish| %>
+                <option value="<%= fish.id %>" <%= @sushi.fish_id == fish.id ? 'selected' : '' %>><%= fish.name %></option>
+            <% end %>
+        </select>
     </div>
     <input type="submit">
 </form>

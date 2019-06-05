@@ -1,0 +1,5 @@
+<h2>all fish</h2>
+
+<% @fish.each do |fish| %>
+    <a href="/fish/<%= fish.id %>"><%= fish.name %></a>
+<% end %>
