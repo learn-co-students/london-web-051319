@@ -1,0 +1,4 @@
+<h2><%= @fish.name %></h2>
+<% @fish.sushis.each do |sushi| %>
+    <a href="/sushis/<%= sushi.id %>"><%= sushi.name %></a>
+<% end %>

@@ -1,0 +1,8 @@
+<h2><%= @sushi.name %></h2>
+<h2>price: <%= @sushi.formatted_price %></h2>
+<% if @sushi.fish%>
+<h2>fish: <a href="/fish/<%= @sushi.fish.id %>"><%= @sushi.fish.name %></a></h2>
+<% else %>
+<h2>this roll has no fish</h2>
+<% end %>
+<a href="/sushis/<%= @sushi.id %>/edit">edit this sushi</a>

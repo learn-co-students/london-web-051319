@@ -1,0 +1,20 @@
+<h2>create a new sushi</h2>
+
+<form action="/sushis" method="post">
+    <div>
+        <label for="name">Enter your sushi name: </label>
+        <input type="text" name="sushi[name]" id="name" >
+    </div>
+    <div>
+        <label for="price">Enter your sushi price: </label>
+        <input type="number" name="sushi[price]" id="price" step="0.01">
+    </div>
+    <div>
+        <select name="sushi[fish_id]">
+            <% @fish_for_select.each do |fish| %>
+                <option value="<%= fish.id %>"><%= fish.name %></option>
+            <% end %>
+        </select>
+    </div>
+    <input type="submit">
+</form>
