@@ -10,11 +10,18 @@
         <input type="number" name="sushi[price]" id="price" step="0.01">
     </div>
     <div>
-        <select name="sushi[fish_id]">
-            <% @fish_for_select.each do |fish| %>
-                <option value="<%= fish.id %>"><%= fish.name %></option>
-            <% end %>
-        </select>
+        <% @ingredients_for_checkboxes.each do |ingredient| %>
+            <input type="checkbox" id="ingredient-<%= ingredient.id %>" name="sushi[ingredient_ids][]" value="<%= ingredient.id %>">
+            <label for="ingredient-<%= ingredient.id %>"><%= ingredient.name %></label>
+        <% end %>
+    </div>
+    <input type="submit">
+</form>
+<form method="post" action="/ingredients">
+    <input type="hidden" name="new_sushi_form" value="true">
+    <div>
+        <label for="name">Enter your ingredient name: </label>
+        <input type="text" name="ingredient[name]" id="name" >
     </div>
     <input type="submit">
 </form>

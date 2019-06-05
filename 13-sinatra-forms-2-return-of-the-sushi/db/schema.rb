@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190605090739) do
+ActiveRecord::Schema.define(version: 20190605150909) do
 
-  create_table "fish", force: :cascade do |t|
+  create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sushi_ingredients", force: :cascade do |t|
+    t.integer  "sushi_id"
+    t.integer  "ingredient_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "sushis", force: :cascade do |t|
@@ -24,7 +31,6 @@ ActiveRecord::Schema.define(version: 20190605090739) do
     t.float    "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "fish_id"
   end
 
 end

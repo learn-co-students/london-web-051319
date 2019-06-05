@@ -1,0 +1,10 @@
+<h2>edit ingredient</h2>
+
+<form method="post" action="/ingredients/<%= @ingredient.id %>">
+    <input type="hidden" name="_method" value="patch">
+    <div>
+        <label for="name">Enter your ingredient name: </label>
+        <input type="text" name="ingredient[name]" id="name" value="<%= @ingredient.name %>">
+    </div>
+    <input type="submit">
+</form>

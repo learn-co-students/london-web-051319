@@ -8,4 +8,4 @@ use Rack::MethodOverride
 
 run ApplicationController
 use SushisController
-use FishController
+use IngredientsController

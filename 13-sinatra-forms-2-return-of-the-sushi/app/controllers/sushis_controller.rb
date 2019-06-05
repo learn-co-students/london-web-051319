@@ -6,7 +6,7 @@ class SushisController < ApplicationController
 
     get '/sushis/new' do
         @sushi = Sushi.new
-        @fish_for_select = Fish.all
+        @ingredients_for_checkboxes = Ingredient.all
         erb :'sushis/new'
     end
 
@@ -22,7 +22,7 @@ class SushisController < ApplicationController
 
     get '/sushis/:id/edit' do
         @sushi = Sushi.find params[:id]
-        @fish_for_select = Fish.all
+        @ingredients_for_checkboxes = Ingredient.all
         erb :'sushis/edit'
     end
 
