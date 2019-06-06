@@ -1,0 +1,11 @@
+<h2>new cupcake</h2>
+
+<%= form_tag cupcakes_path do %>
+    <label for="name">name</label>
+    <input type="text" name="cupcake[name]" id="name">
+    <label for="topping">topping</label>
+    <input type="text" name="cupcake[topping]" id="topping">
+    <label for="price">price</label>
+    <input type="number" step="0.01" name="cupcake[price]" id="price">
+    <input type="submit">
+<% end %>
