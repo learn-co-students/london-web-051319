@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cupcakery</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to 'new cupcake', new_cupcake_path %>
+    <%= link_to 'all cupcakes', cupcakes_path %>
+    <%= link_to 'new topping', new_topping_path %>
+    <%= link_to 'all toppings', toppings_path %>
+    <%= yield %>
+  </body>
+</html>
