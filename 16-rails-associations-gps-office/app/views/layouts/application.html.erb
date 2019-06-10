@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GpsOffice</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to 'new patient', new_patient_path %>
+    <%= link_to 'new doctor', new_doctor_path %>
+    <%= link_to 'new appointment', new_appointment_path %>
+    <%= link_to 'all doctors', doctors_path %>
+    <% if flash[:errors] %>
+    <div class="errors">
+      <% flash[:errors].each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

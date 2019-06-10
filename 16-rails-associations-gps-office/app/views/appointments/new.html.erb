@@ -1,0 +1,13 @@
+<%= form_for @appointment do |f| %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+    <%= f.label :time %>
+    <%= f.time_field :time %>
+
+    <%= f.label :doctor_id %>
+    <%= f.collection_select :doctor_id, @doctors, :id, :name_specialism, selected: params[:doctor_id] %>
+    <%= f.label :patient_id %>
+    <%= f.collection_select :patient_id, @patients, :id, :name, selected: params[:patient_id] %>
+
+    <%= f.submit %>
+<% end %>
