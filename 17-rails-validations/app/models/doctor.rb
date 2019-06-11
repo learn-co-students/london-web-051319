@@ -1,4 +1,5 @@
 class Doctor < ApplicationRecord
+  validates :name, presence: true
   belongs_to :specialism
   has_many :appointments
 

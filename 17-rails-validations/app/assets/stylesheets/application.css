@@ -15,5 +15,6 @@
  */
 
  .errors {
-     color: red;
+     background: red;
+     color: rgb(128, 11, 11);
  }
