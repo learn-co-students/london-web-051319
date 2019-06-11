@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DunderMifflinPetShop</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to 'all dogs', dogs_path %>
+    <%= link_to 'all employees', employees_path %>
+    <%= link_to 'available dogs', available_dogs_path %>
+    <%= yield %>
+  </body>
+</html>

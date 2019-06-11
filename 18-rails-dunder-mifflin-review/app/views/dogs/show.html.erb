@@ -1,0 +1,5 @@
+<h2><%= @dog.name%></h2>
+looked after by:
+<% @dog.employees.each do |employee| %>
+    <%= link_to employee.name, employee %>
+<% end %>

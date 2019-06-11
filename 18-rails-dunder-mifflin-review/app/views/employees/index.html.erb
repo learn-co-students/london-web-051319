@@ -1,0 +1,5 @@
+<div class="card-container">
+<% @employees.each do |employee| %>
+    <%= render 'employee_card', employee: employee %>
+<% end %>
+</div>

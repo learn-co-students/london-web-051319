@@ -1,0 +1,6 @@
+<h2>all dogs</h2>
+<% @dogs.each do |dog| %>
+    <div>
+    <%= link_to dog.name, dog %> is looked after by <%= dog.employee_names %>
+    </div>
+<% end %>

@@ -1,0 +1,6 @@
+<h2>available dogs</h2>
+<% @dogs.each do |dog| %>
+    <div>
+    <%= dog.name %> - <%= link_to 'Adopt this dog', adopt_form_path(dog_id: dog.id) %>
+    </div>
+<% end %>

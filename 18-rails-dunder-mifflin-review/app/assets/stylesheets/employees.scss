@@ -1,0 +1,20 @@
+// Place all the styles related to the Employees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.employee-card {
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    margin: auto;
+    min-height: 5rem;
+}
+
+.employee-card > img {
+    max-width: 10rem;
+}

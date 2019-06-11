@@ -1,0 +1,6 @@
+<h2>you are adopting <%= @dog.name%></h2>
+<%= form_tag adopt_dog_path do %>
+    <%= hidden_field_tag :dog_id, @dog.id %>
+    <%= select_tag :employee_id, options_from_collection_for_select(@employees, "id", "name") %>
+    <%= submit_tag %>
+<% end %>
