@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <%= link_to 'all cars', cars_path %>
+    <%= link_to 'all owners', owners_path %>
+    <%= link_to 'all mechanics', mechanics_path %>
+    <%= link_to 'all brands', brands_path %>
+    <%= link_to 'new car', new_car_path %>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+      <%= error %>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

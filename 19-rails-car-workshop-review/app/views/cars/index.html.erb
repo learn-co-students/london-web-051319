@@ -1,0 +1,19 @@
+<div>
+    view only:
+    <% @brands.each do |brand| %>
+        <%= link_to brand.name, cars_path(brand_name: brand.name, sort_by: params[:sort_by]) %>
+    <% end %>
+        <%= link_to 'all', cars_path %>
+</div>
+<div>
+    sort_by:
+    <% @sort_options.each do |option| %>
+        <%= link_to option, cars_path(sort_by: option, brand_id: params[:brand_id]) %>
+    <% end %>
+        <%= link_to 'default', cars_path %>
+</div>
+<% @cars.each do |car| %>
+    <div>
+    a <%= link_to car.brand.name, car.brand %> owned by <%= link_to car.owner.name, car.owner %> serviced by <%= link_to car.mechanic.name, car.mechanic%> it's been driving for <%= car.mileage %> miles
+    </div>
+<% end %>
