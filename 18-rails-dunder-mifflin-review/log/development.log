@@ -1782,3 +1782,83 @@ Processing by DogsController#show as HTML
 Completed 200 OK in 118ms (Views: 104.0ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/dogs/adopt" for 127.0.0.1 at 2019-06-11 15:44:35 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DogsController#show as HTML
+  Parameters: {"id"=>"adopt"}
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 13ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Dog with 'id'=adopt):
+  
+app/controllers/dogs_controller.rb:7:in `show'
+Started GET "/dogs/adopt?dog_id=6" for 127.0.0.1 at 2019-06-11 15:44:39 +0100
+Processing by DogsController#show as HTML
+  Parameters: {"dog_id"=>"6", "id"=>"adopt"}
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Dog with 'id'=adopt):
+  
+app/controllers/dogs_controller.rb:7:in `show'
+Started GET "/dogs/adopt?dog_id=2" for 127.0.0.1 at 2019-06-11 15:44:42 +0100
+Processing by DogsController#show as HTML
+  Parameters: {"dog_id"=>"2", "id"=>"adopt"}
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Dog with 'id'=adopt):
+  
+app/controllers/dogs_controller.rb:7:in `show'
+Started GET "/dogs" for 127.0.0.1 at 2019-06-11 15:44:50 +0100
+Processing by DogsController#index as HTML
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs"[0m
+  [1m[36mEmployee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 1], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."dog_id" = ?[0m  [["dog_id", 1]]
+  [1m[36mEmployee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 2], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."dog_id" = ?[0m  [["dog_id", 2]]
+  [1m[36mEmployee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 3], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."dog_id" = ?[0m  [["dog_id", 3]]
+  [1m[36mEmployee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 4], ["LIMIT", 1]]
+  [1m[36mEmployee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 5], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."dog_id" = ?[0m  [["dog_id", 5]]
+  [1m[36mEmployee Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 6], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."dog_id" = ?[0m  [["dog_id", 6]]
+  [1m[36mEmployee Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 7], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."dog_id" = ?[0m  [["dog_id", 7]]
+  Rendered dogs/index.html.erb within layouts/application (65.6ms)
+Completed 200 OK in 312ms (Views: 302.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/dogs/available" for 127.0.0.1 at 2019-06-11 15:44:53 +0100
+Processing by DogsController#available as HTML
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs"[0m
+  [1m[36mEmployee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 1], ["LIMIT", 1]]
+  [1m[36mEmployee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 2], ["LIMIT", 1]]
+  [1m[36mEmployee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 3], ["LIMIT", 1]]
+  [1m[36mEmployee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 4], ["LIMIT", 1]]
+  [1m[36mEmployee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 5], ["LIMIT", 1]]
+  [1m[36mEmployee Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 6], ["LIMIT", 1]]
+  [1m[36mEmployee Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "employees" WHERE "employees"."dog_id" = ? LIMIT ?[0m  [["dog_id", 7], ["LIMIT", 1]]
+  Rendering dogs/available.html.erb within layouts/application
+  Rendered dogs/available.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 72ms (Views: 39.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/dogs/adopt_form?dog_id=4" for 127.0.0.1 at 2019-06-11 15:44:54 +0100
+Processing by DogsController#adopt_form as HTML
+  Parameters: {"dog_id"=>"4"}
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering dogs/adopt_form.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered dogs/adopt_form.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 51ms (Views: 41.0ms | ActiveRecord: 0.5ms)
+
+
