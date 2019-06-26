@@ -17,7 +17,6 @@ function makeBookCard(book) {
   const p = document.createElement("p");
   p.textContent = book.author;
 
-  //add all elements to div
   div.appendChild(img);
   div.appendChild(h3);
   div.appendChild(p);
@@ -31,5 +30,12 @@ function showBooks(bookArray) {
   });
 }
 
-// what happens when books isn't defined?
-showBooks(books);
+const button = document.querySelector("button");
+
+button.addEventListener("click", () => {
+  fetch("http://localhost:3001/books")
+    .then(booksData => {
+      booksData.json();
+    })
+    .then(booksArray => showBooks(booksArray));
+});
