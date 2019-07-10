@@ -7,7 +7,6 @@ class UserCard {
     this.avatar = userObj.avatar;
     this.id = userObj.id;
   }
-
   delete = id => {
     fetch(`http://localhost:3000/users/${id}`, {
       method: "DELETE",
@@ -16,7 +15,6 @@ class UserCard {
       }
     }).then(this.deleteUserDomNode());
   };
-
   deleteUserDomNode = () => {
     const domNode = document.querySelector(`div[data-id="${this.id}"`);
     domNode.remove();
@@ -25,11 +23,9 @@ class UserCard {
       this.renderNoUsersMessage();
     }
   };
-
-  renderNoUsersMessage = () => {
+  static renderNoUsersMessage = () => {
     profileList.innerHTML = "no users to show!";
   };
-
   render = () => {
     const userCardDiv = document.createElement("div");
     const avatar = document.createElement("img");
@@ -72,12 +68,11 @@ renderAllUserCards = users => {
 //       renderAllUserCards(users);
 //     });
 
-// ----------------------------------------------------------------------------
+// // ----------------------------------------------------------------------------
 
 // const getUsers = async () => {
 //   const userData = await fetch("http://localhost:3000/users");
 //   const userDataJSON = await userData.json();
-//   debugger;
 //   renderAllUserCards(userDataJSON);
 // };
 
@@ -101,8 +96,7 @@ const getUsers = async () => {
   const data = await fetch("http://localhost:3000/users");
   const dataJSON = await data.json();
   if (dataJSON.length < 1) {
-    const userCardInstance = new UserCard({});
-    userCardInstance.renderNoUsersMessage();
+    UserCard.renderNoUsersMessage();
   } else {
     renderAllUserCards(dataJSON);
   }

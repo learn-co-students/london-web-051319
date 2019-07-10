@@ -1,7 +1,5 @@
 const faker = require("faker");
 
-console.log(faker.name.firstName());
-
 module.exports = () => {
   const userCount = 21;
   const data = { users: [] };
