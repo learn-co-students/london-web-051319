@@ -1,29 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import rankings from './rankings'
+import Title from './components/Title'
+import CardContainer from './components/CardContainer'
+import SearchOptions from './components/SearchOptions'
 
-console.log(rankings)
+// name 
+// picture
+// ranking
+// points
+// country
 
 class App extends React.Component {
+
+  submitForm = () => {
+    console.log('form submitted')
+  }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-            </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-            </a>
-        </header>
+        <Title title={"anyone for tennis??"} />
+        <SearchOptions submitForm={this.submitForm} />
+        <CardContainer players={rankings} />
       </div>
     );
   }
