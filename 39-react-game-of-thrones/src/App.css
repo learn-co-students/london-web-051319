@@ -1,0 +1,29 @@
+.list.sidebar {
+  width: 15rem;
+  background: #ffeaea;
+}
+.list > .option {
+  border: black solid 1px;
+  cursor: pointer;
+}
+.list > .option:hover {
+  background: #ffcccc;
+}
+
+.filters > .option {
+  width: -webkit-fill-available;
+  text-align: center;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+}
+
+.filters > .option.selected {
+  background: #95ceff;
+}
+
+.App {
+  display: flex;
+}
