@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import BookList from "./containers/BookList";
-import Bookshelf from "./containers/Bookshelf";
 import API from "./adapters/API";
+import Form from "./components/Form";
 
 class App extends Component {
 
@@ -44,8 +44,9 @@ class App extends Component {
   render() {
     return (
       <div className="book-container">
-        <BookList books={this.state.books} addBookToShelf={this.addBookToShelf} addBook={this.addBook} />
-        <Bookshelf books={this.getShelfBooks()} removeBookFromShelf={this.removeBookFromShelf} />
+        <Form addBook={this.addBook} />
+        <BookList books={this.state.books} headerContent={'Book List'} bookClickHandler={this.addBookToShelf} />
+        <BookList books={this.getShelfBooks()} headerContent={'Book Shelf'} bookClickHandler={this.removeBookFromShelf} />
       </div>
     );
   }
