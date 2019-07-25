@@ -69,3 +69,81 @@ class PostSerializer < ActiveModel::Serializer
   end
 end
 ```
+
+## JWTs
+
+`bundle add jwt` 
+
+`ApplicationController`:
+
+```
+class ApplicationController < ActionController::API
+    before_action :set_current_user
+
+    def issue_token(payload)
+        JWT.encode(payload, ENV['RAILS_SECRET'])
+    end
+
+    def decode_token(token)
+        JWT.decode(token, ENV['RAILS_SECRET'])[0]
+    end
+
+    def get_token
+        request.headers["Authorization"] || request.headers["Authorisation"]
+    end
+
+    def set_current_user
+        token = get_token
+        if token
+            decoded_token = decode_token(token)
+            @current_user = User.find(decoded_token["user_id"])
+        else 
+            @current_user = nil
+        end
+    end
+
+    def logged_in
+        !!@current_user
+    end
+end
+```
+
+create a string at `ENV['RAILS_SECRET']` using one of these methods: http://railsapps.github.io/rails-environment-variables.html (we'll use local_env.yml, just REMEMBER TO ADD IT TO GITIGNORE and load it in config)
+
+change `users#create` to issue a token along with the user
+
+`rails g controller api/v1/auth`
+
+```
+class Api::V1::AuthController < ApplicationController
+    def create
+        user = User.find_by(email: user_login_params[:email])
+        if user && user.authenticate(user_login_params[:password])
+            render json: { user: UserSerializer.new(user), jwt: issue_token(user_id: user.id) }, status: :accepted
+        else
+            render json: { message: 'Invalid email or password' }, status: :unauthorized
+        end
+    end
+
+    private
+
+    def user_login_params
+        params.require(:user).permit(:email, :password)
+    end
+end
+```
+
+cors, in config/application.rb
+
+```
+config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins '*'
+    resource '*', headers: :any, methods: [:get, :post, :options]
+  end
+end 
+```
+
+`auth#validate`
+
+`localStorage`

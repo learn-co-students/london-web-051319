@@ -2,7 +2,9 @@ class Api::V1::PostsController < ApplicationController
 
     def create
         post = Post.create post_params
+        post.user = @current_user
         if post.valid?
+            post.save
             render json: post, status: :created
         else
             render json: { errors: post.errors.full_messages }, status: :not_accepted
@@ -21,6 +23,6 @@ class Api::V1::PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:title, :content, :user_id)
+        params.require(:post).permit(:title, :content)
     end
 end
