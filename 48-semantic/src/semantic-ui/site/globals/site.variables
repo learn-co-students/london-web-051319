@@ -1,0 +1,10 @@
+/*******************************
+     User Global Variables
+*******************************/
+@defaultBorderRadius: 50px;
+@fontName : 'DM Sans';
+
+@primaryColor: #abcabc;
+
+@emSize: 23px;
+@fontSize : 33px;
